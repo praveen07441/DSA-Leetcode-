@@ -5,13 +5,12 @@ class Solution(object):
         :type val: int
         :rtype: int
         """
-        result =[]
+        k=0
 
-        for num in nums:
-            if num != val:
-                result.append(num)
+        for i in range(len(nums)):
+            if nums[i] != val:
+                nums[k]= nums[i]
+                k = k+1
 
-        for i in range(len(result)):
-            nums[i] = result[i]
 
-        return len(result)
+        return k
