@@ -4,15 +4,15 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        count ={}
+        count = 0
 
         for num in nums:
-            if num in count:
-                count[num] += 1
+            if count == 0:
+                candidate = num
+
+            if num == candidate:
+                count += 1
             else:
-                count[num] = 1
+                count -= 1
 
-        for num in count:
-            if count[num] > len(nums) / 2:
-                return num
-
+        return candidate
