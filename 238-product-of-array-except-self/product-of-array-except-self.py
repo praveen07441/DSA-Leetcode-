@@ -4,26 +4,18 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-
-
-        result = [1] * len(nums)
-
-        product = 1
         
+    
+        n = len(nums)
+        result = [1] * n
 
-        for i in range(len(nums)):
-            result[i] = product
-            product = product * nums[i]
+        for i in range(1, n):
+            result[i] = result[i - 1] * nums[i - 1]
 
-        product = 1
+        right = 1
 
-        for i in range(len(nums) - 1, -1, -1):
-            result[i] = result[i] * product
-            product = product * nums[i]
+        for i in range(n - 1, -1, -1):
+            result[i] *= right
+            right *= nums[i]
 
         return result
-
-
-
-      
-        
